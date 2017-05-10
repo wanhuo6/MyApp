@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="string_email_title">这是标题</string>
+    <string name="string_email_content">这是内容</string>
+    <string name="string_email_type">请选择邮件类应用</string>
+</resources>

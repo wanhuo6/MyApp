@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="gray">#FF888888</color>
+    <color name="transparent">#00000000</color>
+    <string name="string_email_content">这是内容</string>
+    <string name="string_email_title">这是标题</string>
+    <string name="string_email_type">请选择邮件类应用</string>
+</resources>

@@ -1,0 +1,10 @@
+[
+    {
+        "merged": "/home/ahuo/work/workspace/PersonApp/network/build/intermediates/res/merged/debug/drawable/bg_gray_shape.xml",
+        "source": "/home/ahuo/work/workspace/PersonApp/tools/build/intermediates/bundles/default/res/drawable/bg_gray_shape.xml"
+    },
+    {
+        "merged": "/home/ahuo/work/workspace/PersonApp/network/build/intermediates/res/merged/debug/drawable/bg_transparent_shape.xml",
+        "source": "/home/ahuo/work/workspace/PersonApp/tools/build/intermediates/bundles/default/res/drawable/bg_transparent_shape.xml"
+    }
+]
