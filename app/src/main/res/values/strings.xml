@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">PersonApp</string>
+
+
+    <!--net-->
+    <string name="net_error">请检测您的网络</string>
+
+
 </resources>

@@ -181,7 +181,7 @@ public class ImageUtils {
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
-        KLog.i("DrawableUtil", "compress total time:" + (System.currentTimeMillis() - start));
+        MLog.i("DrawableUtil", "compress total time:" + (System.currentTimeMillis() - start));
         return scaledBitmap;
 
     }

@@ -1,5 +1,6 @@
 package com.ahuo.personapp.core.config;
 
+
 /**
  * Created on 17-5-10
  *
@@ -7,5 +8,6 @@ package com.ahuo.personapp.core.config;
  */
 
 public interface AppConfig {
-   String API_HOST = "http://http://www.liuhuijie.cn:8080/fire/";
+   String API_HOST = "http://www.liuhuijie.cn:8080/fire/";
+
 }

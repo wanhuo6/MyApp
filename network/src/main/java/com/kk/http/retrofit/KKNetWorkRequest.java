@@ -8,8 +8,6 @@ import com.kk.http.config.CookieManager;
 import com.kk.http.config.FastJsonConverterFactory;
 import com.kk.http.config.LoggingInterceptor;
 import com.kk.http.download.DownLoadService;
-import com.kuaikuai.coach.pad.PadBaseResponseArgs;
-import com.kuaikuai.coach.pad.PadResponseClientEntity;
 
 import java.io.File;
 import java.io.IOException;
@@ -102,7 +100,7 @@ public class KKNetWorkRequest {
      * @param <T>
      * @return
      */
-    public <T extends PadBaseResponseArgs> void asyncNetWork(final String TAG, final int requestCode, final Call<T> requestCall, final KKNetworkResponse<T> responseListener) {
+    public <T extends BaseResponseEntity> void asyncNetWork(final String TAG, final int requestCode, final Call<T> requestCall, final KKNetworkResponse<T> responseListener) {
         if (responseListener == null) {
             return;
         }
@@ -125,8 +123,8 @@ public class KKNetWorkRequest {
                         responseListener.onDataError(requestCode, response.code(), "");
                         return;
                     }
-                    PadResponseClientEntity padResponseClientEntity = new PadResponseClientEntity(requestCode, response.code(), response.message());
-                    result.setClientEntity(padResponseClientEntity);
+                    //PadResponseClientEntity padResponseClientEntity = new PadResponseClientEntity(requestCode, response.code(), response.message());
+                  //  result.setClientEntity(padResponseClientEntity);
                     responseListener.onDataReady(result);
                 } else {
                     responseListener.onDataError(requestCode, response.code(), NetErrCodeConfig.getErrString(mContext, response.code()));
@@ -150,7 +148,7 @@ public class KKNetWorkRequest {
      * @param <T>
      * @return
      */
-    public <T extends PadBaseResponseArgs> void syncNetWork(final String TAG, final int requestCode, final Call<T> requestCall, final KKNetworkResponse<T> responseListener) {
+    public <T extends BaseResponseEntity> void syncNetWork(final String TAG, final int requestCode, final Call<T> requestCall, final KKNetworkResponse<T> responseListener) {
         if (responseListener == null) {
             return;
         }
@@ -170,8 +168,8 @@ public class KKNetWorkRequest {
                     responseListener.onDataError(requestCode, response.code(), "");
                     return;
                 }
-                PadResponseClientEntity padResponseClientEntity = new PadResponseClientEntity(requestCode, response.code(), response.message());
-                result.setClientEntity(padResponseClientEntity);
+               // PadResponseClientEntity padResponseClientEntity = new PadResponseClientEntity(requestCode, response.code(), response.message());
+              // result.setClientEntity(padResponseClientEntity);
                 responseListener.onDataReady(result);
             } else {
                 responseListener.onDataError(requestCode, response.code(), NetErrCodeConfig.getErrString(mContext, response.code()));

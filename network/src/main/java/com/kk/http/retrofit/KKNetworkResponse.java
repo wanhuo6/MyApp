@@ -1,13 +1,12 @@
 package com.kk.http.retrofit;
 
 
-import com.kuaikuai.coach.pad.PadBaseResponseArgs;
 
 /**
  * Created by hly on 16/3/30.
  * email hugh_hly@sina.cn
  */
-public interface KKNetworkResponse<T extends PadBaseResponseArgs> {
+public interface KKNetworkResponse<T extends BaseResponseEntity> {
     /**
      * 服务器返回成功回调
      *

@@ -27,7 +27,7 @@ import javax.xml.transform.stream.StreamSource;
  * <p/>
  * <font size="1">@author LuoShuiquan.</font>
  */
-public class KLog {
+public class MLog {
     public static final String LINE_SEPARATOR = System.getProperty("line.separator");
     public static final String NULL_TIPS = "Log with null object";
     public static final String PARAM = "Param";
@@ -215,10 +215,10 @@ public class KLog {
         try {
             if (msg.startsWith("{")) {
                 JSONObject jsonObject = new JSONObject(msg);
-                message = jsonObject.toString(KLog.JSON_INDENT);
+                message = jsonObject.toString(MLog.JSON_INDENT);
             } else if (msg.startsWith("[")) {
                 JSONArray jsonArray = new JSONArray(msg);
-                message = jsonArray.toString(KLog.JSON_INDENT);
+                message = jsonArray.toString(MLog.JSON_INDENT);
             } else {
                 message = msg;
             }
@@ -227,8 +227,8 @@ public class KLog {
         }
 
         printLine(tag, true);
-        message = headString + KLog.LINE_SEPARATOR + message;
-        String[] lines = message.split(KLog.LINE_SEPARATOR);
+        message = headString + MLog.LINE_SEPARATOR + message;
+        String[] lines = message.split(MLog.LINE_SEPARATOR);
         for (String line : lines) {
             Log.d(tag, "║ " + line);
         }
@@ -248,11 +248,11 @@ public class KLog {
             xml = formatXML(xml);
             xml = headString + "\n" + xml;
         } else {
-            xml = headString + KLog.NULL_TIPS;
+            xml = headString + MLog.NULL_TIPS;
         }
 
         printLine(tag, true);
-        String[] lines = xml.split(KLog.LINE_SEPARATOR);
+        String[] lines = xml.split(MLog.LINE_SEPARATOR);
         for (String line : lines) {
             if (!isEmpty(line)) {
                 Log.d(tag, "║ " + line);
@@ -308,22 +308,22 @@ public class KLog {
 
     private static void printSub(int type, String tag, String sub) {
         switch (type) {
-            case KLog.V:
+            case MLog.V:
                 Log.v(tag, sub);
                 break;
-            case KLog.D:
+            case MLog.D:
                 Log.d(tag, sub);
                 break;
-            case KLog.I:
+            case MLog.I:
                 Log.i(tag, sub);
                 break;
-            case KLog.W:
+            case MLog.W:
                 Log.w(tag, sub);
                 break;
-            case KLog.E:
+            case MLog.E:
                 Log.e(tag, sub);
                 break;
-            case KLog.A:
+            case MLog.A:
                 Log.wtf(tag, sub);
                 break;
         }

@@ -1,4 +1,4 @@
-package com.ahuo.personapp.core.config;
+package com.ahuo.personapp.core.net;
 
 /**
  * Created on 17-5-10
@@ -6,7 +6,7 @@ package com.ahuo.personapp.core.config;
  * @author liuhuijie
  */
 
-public interface FireUrl {
+public interface NetUrl {
 
     String LOGIN="GetLogin";
 
