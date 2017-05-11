@@ -125,6 +125,7 @@ public class KKNetWorkRequest {
                     }
                     //PadResponseClientEntity padResponseClientEntity = new PadResponseClientEntity(requestCode, response.code(), response.message());
                   //  result.setClientEntity(padResponseClientEntity);
+                    result.requestCode=requestCode;
                     responseListener.onDataReady(result);
                 } else {
                     responseListener.onDataError(requestCode, response.code(), NetErrCodeConfig.getErrString(mContext, response.code()));
@@ -170,6 +171,7 @@ public class KKNetWorkRequest {
                 }
                // PadResponseClientEntity padResponseClientEntity = new PadResponseClientEntity(requestCode, response.code(), response.message());
               // result.setClientEntity(padResponseClientEntity);
+                result.requestCode=requestCode;
                 responseListener.onDataReady(result);
             } else {
                 responseListener.onDataError(requestCode, response.code(), NetErrCodeConfig.getErrString(mContext, response.code()));
