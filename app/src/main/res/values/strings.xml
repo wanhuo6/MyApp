@@ -6,4 +6,7 @@
     <string name="net_error">请检测您的网络</string>
 
 
+    <!--loading-->
+    <string name="loading_data_wait">正在加载数据，请稍等！</string>
+
 </resources>

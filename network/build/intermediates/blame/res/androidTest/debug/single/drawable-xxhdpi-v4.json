@@ -1,10 +1,10 @@
 [
     {
-        "merged": "/home/ahuo/work/workspace/PersonApp/network/build/intermediates/res/merged/androidTest/debug/drawable-xxhdpi-v4/ic_default_user_avatar.png",
-        "source": "/home/ahuo/work/workspace/PersonApp/tools/build/intermediates/bundles/default/res/drawable-xxhdpi-v4/ic_default_user_avatar.png"
-    },
-    {
         "merged": "/home/ahuo/work/workspace/PersonApp/network/build/intermediates/res/merged/androidTest/debug/drawable-xxhdpi-v4/ic_kk_default_square_small.png",
         "source": "/home/ahuo/work/workspace/PersonApp/tools/build/intermediates/bundles/default/res/drawable-xxhdpi-v4/ic_kk_default_square_small.png"
+    },
+    {
+        "merged": "/home/ahuo/work/workspace/PersonApp/network/build/intermediates/res/merged/androidTest/debug/drawable-xxhdpi-v4/ic_default_user_avatar.png",
+        "source": "/home/ahuo/work/workspace/PersonApp/tools/build/intermediates/bundles/default/res/drawable-xxhdpi-v4/ic_default_user_avatar.png"
     }
 ]

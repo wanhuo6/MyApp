@@ -1,6 +1,6 @@
 package com.ahuo.personapp.core.net;
 
-import com.kk.http.retrofit.BaseResponseEntity;
+import com.ahuo.personapp.entity.response.LoginResponse;
 
 import retrofit2.Call;
 import retrofit2.http.GET;
@@ -14,6 +14,6 @@ import retrofit2.http.GET;
 public interface ApiService {
 
     @GET(NetUrl.LOGIN)
-    Call<BaseResponseEntity> getLogin();
+    Call<LoginResponse> getLogin();
 
 }

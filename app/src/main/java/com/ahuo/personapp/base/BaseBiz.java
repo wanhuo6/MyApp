@@ -21,7 +21,7 @@ public abstract class BaseBiz<T extends BaseResponseEntity, M extends BaseReques
 
     public void execute(M requestEntity) {
         if (!NetWorkUtils.isNetConnect(MyApplication.getApp())) {
-            requestEntity.getkKNetworkResponse().onDataError(requestEntity.getRequestCode(),0, MyApplication.getApp().getString(R.string.net_error));
+            requestEntity.getkKNetworkResponse().onDataError(requestEntity.getRequestCode(),requestEntity.getRequestCode(), MyApplication.getApp().getString(R.string.net_error));
             return;
         }
         KKNetWorkRequest.getInstance().asyncNetWork(requestEntity.getTag(), requestEntity.getRequestCode(), buildNetWorkCall(requestEntity), requestEntity.getkKNetworkResponse());

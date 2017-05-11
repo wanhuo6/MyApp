@@ -2,6 +2,7 @@ package com.ahuo.personapp.contract;
 
 import com.ahuo.personapp.base.IBasePresenter;
 import com.ahuo.personapp.base.IBaseView;
+import com.ahuo.personapp.entity.response.LoginResponse;
 
 /**
  * Created on 17-5-11
@@ -11,7 +12,7 @@ import com.ahuo.personapp.base.IBaseView;
 
 public interface LoginContract {
     interface IView extends IBaseView {
-        void loginSuccess();
+        void loginSuccess(LoginResponse response);
 
         void loginFail(String message);
     }

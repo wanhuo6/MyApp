@@ -27,6 +27,8 @@ import static com.bumptech.glide.Glide.with;
  */
 public class GlideLoaderUtil {
 
+    public final static int LOAD_IMAGE_DEFAULT_ID=-1;
+
     /**
      * 加载指定宽高的图片，使用时只注意ImageView的宽高即可，底层自动获取需要加载的宽高
      *
@@ -37,7 +39,7 @@ public class GlideLoaderUtil {
      */
     public static void loadFullWidthImage(final Context mContext, String url, final int defaultId, final ImageView iv) {
         if (TextUtils.isEmpty(url)) {
-            iv.setImageResource(defaultId == -1 ? R.drawable.bg_gray_shape : defaultId);
+            iv.setImageResource(defaultId == LOAD_IMAGE_DEFAULT_ID ? R.drawable.bg_gray_shape : defaultId);
             return;
         }
 
@@ -57,7 +59,7 @@ public class GlideLoaderUtil {
             @Override
             public void onLoadFailed(Exception e, Drawable errorDrawable) {
                 super.onLoadFailed(e, errorDrawable);
-                iv.setImageResource(defaultId == -1 ? R.drawable.bg_transparent_shape : defaultId);
+                iv.setImageResource(defaultId == LOAD_IMAGE_DEFAULT_ID ? R.drawable.bg_transparent_shape : defaultId);
             }
         });
     }
@@ -67,7 +69,7 @@ public class GlideLoaderUtil {
      *
      * @param mContext
      * @param url
-     * @param defaultId 为-1时加载灰色图片
+     * @param defaultId 为LOAD_IMAGE_DEFAULT_ID时加载灰色图片
      * @param iv
      */
     public static void loadNormalImage(Context mContext, String url, int defaultId, ImageView iv) {
@@ -86,15 +88,15 @@ public class GlideLoaderUtil {
      */
     public static void loadNormalImage(Context mContext, String url, final int defaultId, final ImageView iv, boolean cache, final LoadImageCallback callback) {
         if (TextUtils.isEmpty(url)) {
-            iv.setImageResource(defaultId == -1 ? R.drawable.ic_kk_default_square_small : defaultId);
+            iv.setImageResource(defaultId == LOAD_IMAGE_DEFAULT_ID ? R.drawable.ic_kk_default_square_small : defaultId);
             return;
         }
         with(mContext)
                 .load(url)
                 .asBitmap()
                 .diskCacheStrategy(DiskCacheStrategy.SOURCE)
-                .placeholder(defaultId == -1 ? R.drawable.ic_kk_default_square_small : defaultId)
-                .error(defaultId == -1 ? R.drawable.ic_kk_default_square_small : defaultId)
+                .placeholder(defaultId == LOAD_IMAGE_DEFAULT_ID ? R.drawable.ic_kk_default_square_small : defaultId)
+                .error(defaultId == LOAD_IMAGE_DEFAULT_ID ? R.drawable.ic_kk_default_square_small : defaultId)
                 .into(new SimpleTarget<Bitmap>() {
                     @Override
                     public void onResourceReady(Bitmap bitmap, GlideAnimation<? super Bitmap> glideAnimation) {
@@ -109,7 +111,7 @@ public class GlideLoaderUtil {
                     @Override
                     public void onLoadStarted(Drawable placeholder) {
                         super.onLoadStarted(placeholder);
-                        iv.setImageResource(defaultId == -1 ? R.drawable.bg_transparent_shape : defaultId);
+                        iv.setImageResource(defaultId == LOAD_IMAGE_DEFAULT_ID ? R.drawable.bg_transparent_shape : defaultId);
                     }
                 });
     }
@@ -124,7 +126,7 @@ public class GlideLoaderUtil {
      */
     public static void loadSquareAvatar(Context mContext, String avatarUrl, int defaultId, ImageView iv) {
         if (TextUtils.isEmpty(avatarUrl)) {
-            iv.setImageResource(defaultId == -1 ? R.drawable.ic_default_user_avatar : defaultId);
+            iv.setImageResource(defaultId == LOAD_IMAGE_DEFAULT_ID ? R.drawable.ic_default_user_avatar : defaultId);
             return;
         }
 
@@ -132,8 +134,8 @@ public class GlideLoaderUtil {
                 .load(avatarUrl)
                 .asBitmap()
                 .diskCacheStrategy(DiskCacheStrategy.SOURCE)
-                .placeholder(defaultId == -1 ? R.drawable.ic_default_user_avatar : defaultId)
-                .error(defaultId == -1 ? R.drawable.ic_default_user_avatar : defaultId)
+                .placeholder(defaultId == LOAD_IMAGE_DEFAULT_ID ? R.drawable.ic_default_user_avatar : defaultId)
+                .error(defaultId == LOAD_IMAGE_DEFAULT_ID ? R.drawable.ic_default_user_avatar : defaultId)
                 .into(iv);
     }
 
@@ -141,15 +143,15 @@ public class GlideLoaderUtil {
     public static void loadCenterCrop(Context mContext, String url, int defaultId, ImageView iv) {
         if (mContext == null || iv == null) return;//2016/6/6  HongyangJia
         if (TextUtils.isEmpty(url)) {
-            iv.setImageResource(defaultId == -1 ? R.drawable.bg_transparent_shape : defaultId);
+            iv.setImageResource(defaultId == LOAD_IMAGE_DEFAULT_ID ? R.drawable.bg_transparent_shape : defaultId);
             return;
         }
         with(mContext)
                 .load(url)
                 .diskCacheStrategy(DiskCacheStrategy.SOURCE)
                 .centerCrop()
-                .placeholder(defaultId == -1 ? R.drawable.bg_transparent_shape : defaultId)
-                .error(defaultId == -1 ? R.drawable.bg_transparent_shape : defaultId)
+                .placeholder(defaultId == LOAD_IMAGE_DEFAULT_ID ? R.drawable.bg_transparent_shape : defaultId)
+                .error(defaultId == LOAD_IMAGE_DEFAULT_ID ? R.drawable.bg_transparent_shape : defaultId)
                 .into(iv);
     }
 
@@ -163,7 +165,7 @@ public class GlideLoaderUtil {
     public static void loadRoundCornerImage(Context mContext, String url, int defaultId, int radiusDp, ImageView image) {
 
         if (TextUtils.isEmpty(url)) {
-            image.setImageResource(defaultId == -1 ? R.drawable.bg_transparent_shape : defaultId);
+            image.setImageResource(defaultId == LOAD_IMAGE_DEFAULT_ID ? R.drawable.bg_transparent_shape : defaultId);
             return;
         }
 
@@ -181,8 +183,8 @@ public class GlideLoaderUtil {
                 .load(new File(path))
                 .centerCrop()
                 .thumbnail(0.1f)
-                .placeholder(defaultId == -1 ? R.drawable.bg_transparent_shape : defaultId)
-                .error(defaultId == -1 ? R.drawable.bg_transparent_shape : defaultId)
+                .placeholder(defaultId == LOAD_IMAGE_DEFAULT_ID ? R.drawable.bg_transparent_shape : defaultId)
+                .error(defaultId == LOAD_IMAGE_DEFAULT_ID ? R.drawable.bg_transparent_shape : defaultId)
                 .into(image);
     }
 
@@ -207,8 +209,8 @@ public class GlideLoaderUtil {
                 .load(url)
                 .diskCacheStrategy(DiskCacheStrategy.SOURCE)
                 .transform(new CircleTransform(mContext))
-                .placeholder(defaultId == -1 ? R.drawable.bg_transparent_shape : defaultId)
-                .error(defaultId == -1 ? R.drawable.bg_transparent_shape : defaultId)
+                .placeholder(defaultId == LOAD_IMAGE_DEFAULT_ID ? R.drawable.bg_transparent_shape : defaultId)
+                .error(defaultId == LOAD_IMAGE_DEFAULT_ID ? R.drawable.bg_transparent_shape : defaultId)
                 .into(image);
     }
 

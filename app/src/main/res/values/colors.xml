@@ -6,5 +6,6 @@
 
     <!--standard color-->
     <color name="white">#FFFFFF</color>
+    <color name="transparent_white">#E0FFFFFF</color>
 
 </resources>

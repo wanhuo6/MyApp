@@ -4,9 +4,11 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
+import android.text.TextUtils;
 import android.view.View;
 import android.view.WindowManager;
 
+import com.ahuo.personapp.utils.LoadingUtils;
 import com.ahuo.personapp.utils.MyClickListener;
 
 import butterknife.ButterKnife;
@@ -72,6 +74,16 @@ public abstract class BaseActivity extends AppCompatActivity {
 //        MobclickAgent.onPause(this);
     }
 
+    protected void showLoadingDialog(String meassage){
+        if (TextUtils.isEmpty(meassage)){
+            return;
+        }
+        LoadingUtils.showLoadingDialog(this,meassage);
+    }
+
+    protected void dismissLoadingDialog(){
+        LoadingUtils.closeLoadingDialog();
+    }
 
 
 

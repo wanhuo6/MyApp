@@ -2,8 +2,8 @@ package com.ahuo.personapp.Biz;
 
 import com.ahuo.personapp.base.BaseBiz;
 import com.ahuo.personapp.core.net.ApiManager;
+import com.ahuo.personapp.entity.response.LoginResponse;
 import com.kk.http.retrofit.BaseRequestEntity;
-import com.kk.http.retrofit.BaseResponseEntity;
 
 import retrofit2.Call;
 
@@ -13,11 +13,11 @@ import retrofit2.Call;
  * @author liuhuijie
  */
 
-public class LoginBiz extends BaseBiz<BaseResponseEntity,BaseRequestEntity>{
+public class LoginBiz extends BaseBiz<LoginResponse,BaseRequestEntity>{
 
 
     @Override
-    protected Call<BaseResponseEntity> buildNetWorkCall(BaseRequestEntity requestEntity) {
+    protected Call<LoginResponse> buildNetWorkCall(BaseRequestEntity requestEntity) {
         return ApiManager.getInstance().getApiService().getLogin();
     }
 }

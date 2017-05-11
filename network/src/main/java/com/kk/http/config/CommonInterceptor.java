@@ -31,7 +31,7 @@ public class CommonInterceptor implements Interceptor {
             newBuilder.cacheControl(CacheControl.FORCE_NETWORK);
         }
 
-         newBuilder.header("User-Agent", "KKWeight_Android");
+         newBuilder.header("User-Agent", "ahuo_Android");
 //
 //        if (originalRequest.body() == null || originalRequest.header("Content-Encoding") != null) {
 //            newBuilder
