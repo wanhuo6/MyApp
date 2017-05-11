@@ -7,5 +7,6 @@
     <!--standard color-->
     <color name="white">#FFFFFF</color>
     <color name="transparent_white">#E0FFFFFF</color>
+    <color name="divider_line_thin">#D9D9D9</color>
 
 </resources>

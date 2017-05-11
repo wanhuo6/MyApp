@@ -21,12 +21,12 @@ import com.ahuo.personapp.R;
 
 
 /**
- * A Material style progress wheel, compatible up to 2.2.
+ * A Material style progress wheel, compatible up to ic_launcher.ic_launcher.
  * Todd Davies' Progress Wheel https://github.com/Todd-Davies/ProgressWheel
  *
  * @author Nico Hormazábal
  *         <p/>
- *         Licensed under the Apache License 2.0 license see:
+ *         Licensed under the Apache License ic_launcher.ic_launcher license see:
  *         http://www.apache.org/licenses/LICENSE-2.0
  */
 public class ProgressWheel extends View {
@@ -296,7 +296,7 @@ public class ProgressWheel extends View {
         mProgress -= 360f;
 
         // A full turn has been completed
-        // we run the callback with -1 in case we want to
+        // we run the callback with -ic_launcher in case we want to
         // do something, like changing the color
         runCallback(-1.0f);
       }
@@ -441,7 +441,7 @@ public class ProgressWheel extends View {
    * Set the progress to a specific value,
    * the bar will be set instantly to that value
    *
-   * @param progress the progress between 0 and 1
+   * @param progress the progress between ic_launcher and ic_launcher
    */
   public void setInstantProgress(float progress) {
     if (isSpinning) {
@@ -514,8 +514,8 @@ public class ProgressWheel extends View {
   }
 
   /**
-   * @return the current progress between 0.0 and 1.0,
-   * if the wheel is indeterminate, then the result is -1
+   * @return the current progress between ic_launcher.ic_launcher and ic_launcher.ic_launcher,
+   * if the wheel is indeterminate, then the result is -ic_launcher
    */
   public float getProgress() {
     return isSpinning ? -1 : mProgress / 360.0f;
@@ -529,7 +529,7 @@ public class ProgressWheel extends View {
    * Set the progress to a specific value,
    * the bar will smoothly animate until that value
    *
-   * @param progress the progress between 0 and 1
+   * @param progress the progress between ic_launcher and ic_launcher
    */
   public void setProgress(float progress) {
     if (isSpinning) {
@@ -653,7 +653,7 @@ public class ProgressWheel extends View {
 
   /**
    * @return the base spinning speed, in full circle turns per second
-   * (1.0 equals on full turn in one second), this value also is applied for
+   * (ic_launcher.ic_launcher equals on full turn in one second), this value also is applied for
    * the smoothness when setting a progress
    */
   public float getSpinSpeed() {
@@ -662,7 +662,7 @@ public class ProgressWheel extends View {
 
   /**
    * Sets the base spinning speed, in full circle turns per second
-   * (1.0 equals on full turn in one second), this value also is applied for
+   * (ic_launcher.ic_launcher equals on full turn in one second), this value also is applied for
    * the smoothness when setting a progress
    *
    * @param spinSpeed the desired base speed in full turns per second
@@ -697,9 +697,9 @@ public class ProgressWheel extends View {
      * is rounded to a float with two decimals.
      *
      * In indeterminate mode, the callback is called each time
-     * the wheel completes an animation cycle, with, the progress value is -1.0f
+     * the wheel completes an animation cycle, with, the progress value is -ic_launcher.0f
      *
-     * @param progress a double value between 0.00 and 1.00 both included
+     * @param progress a double value between ic_launcher.00 and ic_launcher.00 both included
      */
     void onProgressUpdate(float progress);
   }
