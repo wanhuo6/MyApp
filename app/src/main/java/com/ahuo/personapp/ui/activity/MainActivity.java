@@ -11,8 +11,8 @@ import com.ahuo.personapp.R;
 import com.ahuo.personapp.base.BaseActivity;
 import com.ahuo.personapp.contract.LoginContract;
 import com.ahuo.personapp.entity.response.LoginResponse;
-import com.kk.tool.imageloader.GlideLoaderUtil;
-import com.kk.tool.util.ToastUtils;
+import com.ahuo.tools.imageloader.GlideLoaderUtil;
+import com.ahuo.tools.util.ToastUtils;
 
 import butterknife.BindView;
 
@@ -67,7 +67,7 @@ public class MainActivity extends BaseActivity implements LoginContract.IView{
     @Override
     public void loginSuccess(LoginResponse loginResponse) {
         dismissLoadingDialog();
-        GlideLoaderUtil.loadFullWidthImage(this,loginResponse.photoUrl,GlideLoaderUtil.LOAD_IMAGE_DEFAULT_ID,mIvUserPhoto);
+        GlideLoaderUtil.loadFullWidthImage(this,loginResponse.photoUrl, GlideLoaderUtil.LOAD_IMAGE_DEFAULT_ID,mIvUserPhoto);
 
     }
 

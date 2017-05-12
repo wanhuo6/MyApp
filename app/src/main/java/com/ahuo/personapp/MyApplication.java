@@ -3,8 +3,8 @@ package com.ahuo.personapp;
 import android.app.Application;
 
 import com.ahuo.personapp.core.net.ApiManager;
-import com.kk.tool.util.MLog;
-import com.kk.tool.util.ToastUtils;
+import com.ahuo.tools.util.MLog;
+import com.ahuo.tools.util.ToastUtils;
 
 /**
  * Created on 17-5-11

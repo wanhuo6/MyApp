@@ -41,6 +41,6 @@ ext {
     rulesVersion = '0.4.1'
     butterknifeVersion = '8.1.0'
     espressoVersion = '2.2.1'
-    fireToolsVersion='v1.01'
+    fireToolsVersion='1.0.3'
 }
 

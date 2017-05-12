@@ -3,7 +3,7 @@ package com.ahuo.personapp.Biz;
 import com.ahuo.personapp.base.BaseBiz;
 import com.ahuo.personapp.core.net.ApiManager;
 import com.ahuo.personapp.entity.response.LoginResponse;
-import com.kk.http.retrofit.BaseRequestEntity;
+import com.ahuo.tools.network.retrofit.BaseRequestEntity;
 
 import retrofit2.Call;
 

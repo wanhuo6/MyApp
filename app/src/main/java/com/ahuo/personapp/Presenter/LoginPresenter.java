@@ -4,10 +4,10 @@ import com.ahuo.personapp.Biz.LoginBiz;
 import com.ahuo.personapp.contract.LoginContract;
 import com.ahuo.personapp.core.net.NetRequestCode;
 import com.ahuo.personapp.entity.response.LoginResponse;
-import com.kk.http.retrofit.BaseRequestEntity;
-import com.kk.http.retrofit.BaseResponseEntity;
-import com.kk.http.retrofit.KKNetworkResponse;
-import com.kk.tool.util.MLog;
+import com.ahuo.tools.network.retrofit.BaseRequestEntity;
+import com.ahuo.tools.network.retrofit.BaseResponseEntity;
+import com.ahuo.tools.network.retrofit.KKNetworkResponse;
+import com.ahuo.tools.util.MLog;
 
 /**
  * Created on 17-5-10

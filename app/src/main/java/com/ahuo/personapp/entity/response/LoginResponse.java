@@ -1,6 +1,7 @@
 package com.ahuo.personapp.entity.response;
 
-import com.kk.http.retrofit.BaseResponseEntity;
+
+import com.ahuo.tools.network.retrofit.BaseResponseEntity;
 
 /**
  * Created on 17-5-11
@@ -8,7 +9,7 @@ import com.kk.http.retrofit.BaseResponseEntity;
  * @author liuhuijie
  */
 
-public class LoginResponse extends BaseResponseEntity{
+public class LoginResponse extends BaseResponseEntity {
 
     public String name;
     public Integer age;

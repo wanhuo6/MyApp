@@ -24,7 +24,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.ahuo.personapp.R;
-import com.kk.tool.util.CommonUtils;
+import com.ahuo.tools.util.CommonUtils;
 
 import java.lang.reflect.Field;
 import java.util.ArrayList;

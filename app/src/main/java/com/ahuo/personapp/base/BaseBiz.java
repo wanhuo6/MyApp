@@ -2,10 +2,10 @@ package com.ahuo.personapp.base;
 
 import com.ahuo.personapp.MyApplication;
 import com.ahuo.personapp.R;
-import com.kk.http.retrofit.BaseRequestEntity;
-import com.kk.http.retrofit.BaseResponseEntity;
-import com.kk.http.retrofit.KKNetWorkRequest;
-import com.kk.tool.util.NetWorkUtils;
+import com.ahuo.tools.network.retrofit.BaseRequestEntity;
+import com.ahuo.tools.network.retrofit.BaseResponseEntity;
+import com.ahuo.tools.network.retrofit.KKNetWorkRequest;
+import com.ahuo.tools.util.NetWorkUtils;
 
 import retrofit2.Call;
 

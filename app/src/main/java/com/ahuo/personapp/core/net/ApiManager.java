@@ -3,7 +3,7 @@ package com.ahuo.personapp.core.net;
 import android.content.Context;
 
 import com.ahuo.personapp.core.config.AppConfig;
-import com.kk.http.retrofit.KKNetWorkRequest;
+import com.ahuo.tools.network.retrofit.KKNetWorkRequest;
 
 /**
  * Created on 17-5-10

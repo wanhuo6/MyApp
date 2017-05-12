@@ -30,5 +30,4 @@ dependencies {
     compile "com.jakewharton:butterknife:$rootProject.ext.butterknifeVersion"
     apt "com.jakewharton:butterknife-compiler:$rootProject.ext.butterknifeVersion"
     compile "com.github.wanhuo6:FireLibrary:$rootProject.ext.fireToolsVersion"
-    compile project(path: ':network')
 }
