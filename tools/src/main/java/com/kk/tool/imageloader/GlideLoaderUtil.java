@@ -88,15 +88,15 @@ public class GlideLoaderUtil {
      */
     public static void loadNormalImage(Context mContext, String url, final int defaultId, final ImageView iv, boolean cache, final LoadImageCallback callback) {
         if (TextUtils.isEmpty(url)) {
-            iv.setImageResource(defaultId == LOAD_IMAGE_DEFAULT_ID ? R.drawable.ic_kk_default_square_small : defaultId);
+            iv.setImageResource(defaultId == LOAD_IMAGE_DEFAULT_ID ? R.drawable.ic_default_square_small : defaultId);
             return;
         }
         with(mContext)
                 .load(url)
                 .asBitmap()
                 .diskCacheStrategy(DiskCacheStrategy.SOURCE)
-                .placeholder(defaultId == LOAD_IMAGE_DEFAULT_ID ? R.drawable.ic_kk_default_square_small : defaultId)
-                .error(defaultId == LOAD_IMAGE_DEFAULT_ID ? R.drawable.ic_kk_default_square_small : defaultId)
+                .placeholder(defaultId == LOAD_IMAGE_DEFAULT_ID ? R.drawable.ic_default_square_small : defaultId)
+                .error(defaultId == LOAD_IMAGE_DEFAULT_ID ? R.drawable.ic_default_square_small : defaultId)
                 .into(new SimpleTarget<Bitmap>() {
                     @Override
                     public void onResourceReady(Bitmap bitmap, GlideAnimation<? super Bitmap> glideAnimation) {

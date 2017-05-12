@@ -45,7 +45,7 @@ public class DownLoadDatabase {
         /**
          * 表名
          */
-        public static final String TABLE_NAME = "kk_download";
+        public static final String TABLE_NAME = "ahuo_download";
 
         /**
          * 创建表的SQL
