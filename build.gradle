@@ -16,6 +16,7 @@ buildscript {
 allprojects {
     repositories {
         jcenter()
+        maven { url 'https://jitpack.io' }
     }
 }
 
@@ -40,5 +41,6 @@ ext {
     rulesVersion = '0.4.1'
     butterknifeVersion = '8.1.0'
     espressoVersion = '2.2.1'
+    fireToolsVersion='v1.01'
 }
 

@@ -73,7 +73,7 @@ public class LoginPresenter implements LoginContract.IPresenter, KKNetworkRespon
 
     @Override
     public void onDataError(int requestCode, int responseCode, String message) {
-        MLog.e("sssssssssss" + requestCode);
+        MLog.e("sssssssssss" + requestCode+"=="+message);
         if (mIView == null) {
             return;
         }
@@ -88,7 +88,6 @@ public class LoginPresenter implements LoginContract.IPresenter, KKNetworkRespon
 
 
         }
-        MLog.e("sssssssssss" + responseCode + "===" + message);
 
     }
 
