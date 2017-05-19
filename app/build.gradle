@@ -1,7 +1,16 @@
 apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
 apply plugin: 'android-apt'
 
 android {
+    signingConfigs {
+        sign {
+            keyAlias 'key0'
+            storeFile file('/home/ahuo/core/ahuo.jks')
+            keyPassword KEY_PASSWORD
+            storePassword KEYSTORE_PASSWORD
+        }
+    }
     compileSdkVersion rootProject.ext.compileSdkVersion
     buildToolsVersion rootProject.ext.buildToolsVersion
     defaultConfig {
@@ -9,14 +18,37 @@ android {
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1
-        versionName "ic_launcher.ic_launcher"
+        versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
-        release {
+        huo_debug {
+            debuggable true
+            signingConfig signingConfigs.sign
+            jniDebuggable false
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
+        huo_release {
+            debuggable false
+            jniDebuggable false
+            signingConfig signingConfigs.sign
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+        huo_test {
+            debuggable false
+            jniDebuggable false
+            signingConfig signingConfigs.sign
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    productFlavors {
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_7
+        targetCompatibility JavaVersion.VERSION_1_7
     }
 }
 

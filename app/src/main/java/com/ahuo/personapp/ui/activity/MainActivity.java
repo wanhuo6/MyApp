@@ -1,6 +1,7 @@
 package com.ahuo.personapp.ui.activity;
 
 
+import android.content.Intent;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.ImageView;
@@ -22,6 +23,8 @@ public class MainActivity extends BaseActivity implements LoginContract.IView{
     TextView mTvLogin;
     @BindView(R.id.iv_user_photo)
     ImageView mIvUserPhoto;
+    @BindView(R.id.tv_kotlin)
+    TextView mTvKotlin;
 
 
     private static final String TAG = "MainActivity";
@@ -42,7 +45,9 @@ public class MainActivity extends BaseActivity implements LoginContract.IView{
         mIPresenter.setView(this);
 
         mTvLogin.setOnClickListener(mClickListener);
+        mTvKotlin.setOnClickListener(mClickListener);
     }
+
 
     @Override
     protected void onSingleClick(View view) {
@@ -51,6 +56,11 @@ public class MainActivity extends BaseActivity implements LoginContract.IView{
             case R.id.tv_login:
                 showLoadingDialog(getString(R.string.loading_data_wait));
                 mIPresenter.getLogin();
+                break;
+            case R.id.tv_kotlin:
+                Intent intent=new Intent(this,PersonDataActivity.class);
+                startActivity(intent);
+
                 break;
             default:
 
