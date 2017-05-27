@@ -6,5 +6,5 @@ package com.ahuo.personapp.callback;
  * @author liuhuijie
  */
 
-public class TestListener {
+public interface TestListener {
 }

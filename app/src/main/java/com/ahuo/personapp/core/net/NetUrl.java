@@ -10,4 +10,6 @@ public interface NetUrl {
 
     String LOGIN="GetLogin";
 
+    String GET_USERS="getUsers";
+
 }

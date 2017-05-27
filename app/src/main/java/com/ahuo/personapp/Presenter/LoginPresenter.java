@@ -1,6 +1,6 @@
 package com.ahuo.personapp.Presenter;
 
-import com.ahuo.personapp.Biz.LoginBiz;
+import com.ahuo.personapp.Biz.GetUsersBiz;
 import com.ahuo.personapp.contract.LoginContract;
 import com.ahuo.personapp.core.net.NetRequestCode;
 import com.ahuo.personapp.entity.response.LoginResponse;
@@ -18,7 +18,9 @@ import com.ahuo.tools.util.MLog;
 public class LoginPresenter implements LoginContract.IPresenter, KKNetworkResponse<BaseResponseEntity> {
 
 
-    private LoginBiz mLoginBiz;
+    private GetUsersBiz mLoginBiz;
+
+    private GetUsersBiz mGetUsersBiz;
 
     private LoginContract.IView mIView;
 
@@ -45,7 +47,7 @@ public class LoginPresenter implements LoginContract.IPresenter, KKNetworkRespon
     @Override
     public void getLogin() {
         if (mLoginBiz == null) {
-            mLoginBiz = new LoginBiz();
+            mLoginBiz = new GetUsersBiz();
         }
         mLoginBiz.execute(new BaseRequestEntity(mTag, NetRequestCode.LOGIN, this));
     }

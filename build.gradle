@@ -44,5 +44,6 @@ ext {
     butterknifeVersion = '8.1.0'
     espressoVersion = '2.2.1'
     fireToolsVersion='1.0.3'
+    personEntityVersion='1.0.0'
 }
 
