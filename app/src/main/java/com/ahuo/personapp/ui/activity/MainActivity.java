@@ -11,6 +11,7 @@ import com.ahuo.personapp.Presenter.LoginPresenter;
 import com.ahuo.personapp.R;
 import com.ahuo.personapp.base.BaseActivity;
 import com.ahuo.personapp.contract.LoginContract;
+import com.ahuo.personapp.entity.response.GetUserResponse;
 import com.ahuo.personapp.entity.response.LoginResponse;
 import com.ahuo.tools.imageloader.GlideLoaderUtil;
 import com.ahuo.tools.util.ToastUtils;
@@ -79,6 +80,12 @@ public class MainActivity extends BaseActivity implements LoginContract.IView{
         dismissLoadingDialog();
         GlideLoaderUtil.loadFullWidthImage(this,loginResponse.photoUrl, GlideLoaderUtil.LOAD_IMAGE_DEFAULT_ID,mIvUserPhoto);
 
+    }
+
+    @Override
+    public void getUsers(GetUserResponse response) {
+        dismissLoadingDialog();
+        mTvLogin.setText(response+"11");
     }
 
     @Override

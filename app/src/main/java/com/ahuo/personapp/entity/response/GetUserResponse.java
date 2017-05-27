@@ -1,6 +1,6 @@
 package com.ahuo.personapp.entity.response;
 
-import com.ahuo.entity.entity.User;
+import com.ahuo.personapp.entity.other.User;
 import com.ahuo.tools.network.retrofit.BaseResponseEntity;
 
 import java.util.List;

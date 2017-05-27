@@ -3,7 +3,7 @@ package com.ahuo.personapp.Presenter;
 import com.ahuo.personapp.Biz.GetUsersBiz;
 import com.ahuo.personapp.contract.LoginContract;
 import com.ahuo.personapp.core.net.NetRequestCode;
-import com.ahuo.personapp.entity.response.LoginResponse;
+import com.ahuo.personapp.entity.response.GetUserResponse;
 import com.ahuo.tools.network.retrofit.BaseRequestEntity;
 import com.ahuo.tools.network.retrofit.BaseResponseEntity;
 import com.ahuo.tools.network.retrofit.KKNetworkResponse;
@@ -60,8 +60,8 @@ public class LoginPresenter implements LoginContract.IPresenter, KKNetworkRespon
         }
         switch (response.requestCode) {
             case NetRequestCode.LOGIN:
-                LoginResponse loginResponse = (LoginResponse) response;
-                mIView.loginSuccess(loginResponse);
+                GetUserResponse loginResponse = (GetUserResponse) response;
+                mIView.getUsers(loginResponse);
 
                 break;
             default:
