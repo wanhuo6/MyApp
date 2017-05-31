@@ -15,6 +15,7 @@ import com.ahuo.personapp.entity.response.GetUserResponse;
 import com.ahuo.personapp.entity.response.LoginResponse;
 import com.ahuo.tools.imageloader.GlideLoaderUtil;
 import com.ahuo.tools.util.ToastUtils;
+import com.alibaba.fastjson.JSONObject;
 
 import butterknife.BindView;
 
@@ -85,7 +86,7 @@ public class MainActivity extends BaseActivity implements LoginContract.IView{
     @Override
     public void getUsers(GetUserResponse response) {
         dismissLoadingDialog();
-        mTvLogin.setText(response+"11");
+        mTvLogin.setText(JSONObject.toJSONString(response));
     }
 
     @Override

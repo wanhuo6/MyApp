@@ -8,3 +8,5 @@ gradlew.bat
 local.properties
 .DS_Store
 /captures
+/.idea/
+/.gradle/
