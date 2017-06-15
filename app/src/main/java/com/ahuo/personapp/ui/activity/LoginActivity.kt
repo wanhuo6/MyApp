@@ -12,27 +12,17 @@ import com.ahuo.personapp.entity.response.LoginResponse
 import com.ahuo.tools.util.ToastUtils
 import kotlinx.android.synthetic.main.activity_login.*
 
-class LoginActivity : BaseActivity() ,LoginContract.IView{
-    override fun loginSuccess(response: LoginResponse?) {
-       ToastUtils.showToast(response!!.user.uuid.toString())
-    }
-
-    override fun getUsersSuccess(response: GetUserResponse?) {
-
-    }
-
-    override fun loginFail(message: String?) {
-        ToastUtils.showToast(message)
-    }
+class LoginActivity : BaseActivity(), LoginContract.IView {
 
     var mIPresenter: LoginContract.IPresenter? = null
 
-    companion object{
-        fun startActivity(activity: Activity){
-            val intent= Intent(activity,LoginActivity::class.java)
+    companion object {
+        fun startActivity(activity: Activity) {
+            val intent = Intent(activity, LoginActivity::class.java)
             activity.startActivity(intent)
         }
     }
+
     override fun getLayoutId(): Int {
         return R.layout.activity_login
     }
@@ -42,20 +32,32 @@ class LoginActivity : BaseActivity() ,LoginContract.IView{
         mIPresenter = LoginPresenter(TAG)
         mIPresenter!!.setView(this)
         tvLogin.setOnClickListener {
-          toLogin()
+            toLogin()
         }
     }
 
     private fun toLogin() {
-        val account= etAccount.text.toString().trim()
-        val password=etPassword.text.toString().trim()
-        if(TextUtils.isEmpty(account)){
+        val account = etAccount.text.toString().trim()
+        val password = etPassword.text.toString().trim()
+        if (TextUtils.isEmpty(account)) {
             ToastUtils.showToast("账号为空")
-        }else if (TextUtils.isEmpty(password)){
+        } else if (TextUtils.isEmpty(password)) {
             ToastUtils.showToast("密码为空")
-        }else{
-            mIPresenter!!.login(account,password)
+        } else {
+            mIPresenter!!.login(account, password)
         }
+    }
+
+    override fun loginSuccess(response: LoginResponse?) {
+        ToastUtils.showToast(response!!.user.uuid.toString())
+    }
+
+    override fun getUsersSuccess(response: GetUserResponse?) {
+
+    }
+
+    override fun loginFail(message: String?) {
+        ToastUtils.showToast(message)
     }
 
 
