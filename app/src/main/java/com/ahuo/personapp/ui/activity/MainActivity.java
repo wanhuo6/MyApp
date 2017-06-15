@@ -1,7 +1,6 @@
 package com.ahuo.personapp.ui.activity;
 
 
-import android.content.Intent;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.ImageView;
@@ -19,7 +18,7 @@ import com.alibaba.fastjson.JSONObject;
 
 import butterknife.BindView;
 
-public class MainActivity extends BaseActivity implements LoginContract.IView{
+public class MainActivity extends BaseActivity implements LoginContract.IView {
 
     @BindView(R.id.tv_login)
     TextView mTvLogin;
@@ -27,6 +26,8 @@ public class MainActivity extends BaseActivity implements LoginContract.IView{
     ImageView mIvUserPhoto;
     @BindView(R.id.tv_kotlin)
     TextView mTvKotlin;
+    @BindView(R.id.tv_get_users)
+    TextView mTvGetUsers;
 
 
     private static final String TAG = "MainActivity";
@@ -43,26 +44,28 @@ public class MainActivity extends BaseActivity implements LoginContract.IView{
     @Override
     protected void initData() {
         super.initData();
-        mIPresenter=new LoginPresenter(TAG);
+        mIPresenter = new LoginPresenter(TAG);
         mIPresenter.setView(this);
 
         mTvLogin.setOnClickListener(mClickListener);
         mTvKotlin.setOnClickListener(mClickListener);
+        mTvGetUsers.setOnClickListener(mClickListener);
     }
 
 
     @Override
     protected void onSingleClick(View view) {
         super.onSingleClick(view);
-        switch (view.getId()){
+        switch (view.getId()) {
             case R.id.tv_login:
-                showLoadingDialog(getString(R.string.loading_data_wait));
-                mIPresenter.getLogin();
+                LoginActivity.Companion.startActivity(this);
                 break;
             case R.id.tv_kotlin:
-                Intent intent=new Intent(this,PersonDataActivity.class);
-                startActivity(intent);
-
+                PersonDataActivity.Companion.startActivity(this);
+                break;
+            case R.id.tv_get_users:
+                showLoadingDialog(getString(R.string.loading_data_wait));
+                mIPresenter.getUsers();
                 break;
             default:
 
@@ -73,26 +76,26 @@ public class MainActivity extends BaseActivity implements LoginContract.IView{
     @Override
     protected void onDestroy() {
         super.onDestroy();
-         mIPresenter.removeView(TAG);
+        mIPresenter.removeView(TAG);
     }
 
     @Override
     public void loginSuccess(LoginResponse loginResponse) {
         dismissLoadingDialog();
-        GlideLoaderUtil.loadFullWidthImage(this,loginResponse.photoUrl, GlideLoaderUtil.LOAD_IMAGE_DEFAULT_ID,mIvUserPhoto);
+        GlideLoaderUtil.loadFullWidthImage(this, loginResponse.user.getPhoto(), GlideLoaderUtil.LOAD_IMAGE_DEFAULT_ID, mIvUserPhoto);
 
     }
 
     @Override
-    public void getUsers(GetUserResponse response) {
+    public void getUsersSuccess(GetUserResponse response) {
         dismissLoadingDialog();
-        mTvLogin.setText(JSONObject.toJSONString(response));
+        mTvGetUsers.setText(JSONObject.toJSONString(response));
     }
 
     @Override
     public void loginFail(String message) {
         dismissLoadingDialog();
-        if (TextUtils.isEmpty(message)){
+        if (TextUtils.isEmpty(message)) {
             return;
         }
         ToastUtils.showToast(message);

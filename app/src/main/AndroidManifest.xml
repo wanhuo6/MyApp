@@ -22,6 +22,8 @@
         </activity>
         <activity android:name=".ui.activity.PersonDataActivity">
         </activity>
+        <activity android:name=".ui.activity.LoginActivity">
+        </activity>
     </application>
 
 </manifest>

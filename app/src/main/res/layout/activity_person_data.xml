@@ -10,7 +10,6 @@
         android:id="@+id/tvTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:contentDescription="tv_title"
-        android:text="个人信息"
+        android:text="test"
         />
 </LinearLayout>

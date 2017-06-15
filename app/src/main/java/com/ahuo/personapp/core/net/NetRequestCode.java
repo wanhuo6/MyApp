@@ -8,6 +8,8 @@ package com.ahuo.personapp.core.net;
 
 public interface NetRequestCode {
 
-    int LOGIN = 1;
+    int GET_USERS = 1;
+
+    int LOGIN = 2;
 
 }

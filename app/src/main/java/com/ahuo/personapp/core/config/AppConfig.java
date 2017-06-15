@@ -9,6 +9,8 @@ package com.ahuo.personapp.core.config;
 
 public interface AppConfig {
 
-   String API_HOST = "http://47.93.247.240/person/";
+   //String API_HOST = "http://www.liuhuijie.cn/person/";
+
+   String API_HOST = "http://192.168.21.194:8080/";
 
 }

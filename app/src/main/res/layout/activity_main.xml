@@ -7,7 +7,7 @@
     >
     <TextView
         android:layout_gravity="center_horizontal"
-        android:id="@+id/tv_login"
+        android:id="@+id/tv_get_users"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/dp_20"
@@ -15,7 +15,7 @@
         android:background="@color/colorPrimary"
         android:textColor="@color/white"
         android:textSize="@dimen/sp_12"
-        android:text="登录!"
+        android:text="查看用户!"
         />
 
     <TextView
@@ -29,6 +29,19 @@
         android:textColor="@color/white"
         android:textSize="@dimen/sp_12"
         android:text="kotlin!"
+        />
+
+    <TextView
+        android:layout_gravity="center_horizontal"
+        android:id="@+id/tv_login"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp_20"
+        android:padding="@dimen/dp_10"
+        android:background="@color/colorPrimary"
+        android:textColor="@color/white"
+        android:textSize="@dimen/sp_12"
+        android:text="登录!"
         />
 
     <ImageView

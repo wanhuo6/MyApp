@@ -1,37 +1,30 @@
 package com.ahuo.personapp.ui.activity
 
-import android.os.Bundle
-import android.widget.TextView
+import android.app.Activity
+import android.content.Intent
 import com.ahuo.personapp.R
 import com.ahuo.personapp.base.BaseActivity
+import kotlinx.android.synthetic.main.activity_person_data.*
 
 class PersonDataActivity : BaseActivity() {
 
-    private var mTvTitle: TextView?=null
-
+    companion object {
+        fun startActivity(activity: Activity) {
+            val intent = Intent(activity, PersonDataActivity::class.java)
+            activity.startActivity(intent)
+        }
+    }
 
     override fun getLayoutId(): Int {
         return R.layout.activity_person_data
     }
 
-
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_person_data)
-        initView()
-    }
-
-    fun initView(){
-
-        mTvTitle= findViewById(R.id.tvTitle) as TextView?
-
-
-    }
-
     override fun initData() {
         super.initData()
-        mTvTitle?.text=("你好卡特琳")
+        tvTitle.setOnClickListener {
+            startActivity(Intent(this, MainActivity::class.java))
+            finish()
+        }
 
     }
 

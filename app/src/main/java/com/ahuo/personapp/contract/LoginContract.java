@@ -15,13 +15,15 @@ public interface LoginContract {
     interface IView extends IBaseView {
         void loginSuccess(LoginResponse response);
 
-        void getUsers(GetUserResponse response);
+        void getUsersSuccess(GetUserResponse response);
 
         void loginFail(String message);
     }
 
     interface IPresenter extends IBasePresenter<IView> {
-        void getLogin();
+        void getUsers();
+
+        void login(String account,String password);
     }
 
 }

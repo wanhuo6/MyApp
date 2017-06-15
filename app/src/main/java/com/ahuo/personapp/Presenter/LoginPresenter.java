@@ -1,13 +1,17 @@
 package com.ahuo.personapp.Presenter;
 
 import com.ahuo.personapp.Biz.GetUsersBiz;
+import com.ahuo.personapp.Biz.LoginBiz;
 import com.ahuo.personapp.contract.LoginContract;
 import com.ahuo.personapp.core.net.NetRequestCode;
+import com.ahuo.personapp.entity.request.LoginRequest;
 import com.ahuo.personapp.entity.response.GetUserResponse;
+import com.ahuo.personapp.entity.response.LoginResponse;
 import com.ahuo.tools.network.retrofit.BaseRequestEntity;
 import com.ahuo.tools.network.retrofit.BaseResponseEntity;
 import com.ahuo.tools.network.retrofit.KKNetworkResponse;
 import com.ahuo.tools.util.MLog;
+import com.ahuo.tools.util.ToastUtils;
 
 /**
  * Created on 17-5-10
@@ -18,9 +22,9 @@ import com.ahuo.tools.util.MLog;
 public class LoginPresenter implements LoginContract.IPresenter, KKNetworkResponse<BaseResponseEntity> {
 
 
-    private GetUsersBiz mLoginBiz;
-
     private GetUsersBiz mGetUsersBiz;
+
+    private LoginBiz mLoginBiz;
 
     private LoginContract.IView mIView;
 
@@ -38,18 +42,26 @@ public class LoginPresenter implements LoginContract.IPresenter, KKNetworkRespon
     @Override
     public void removeView(String tag) {
         this.mIView = null;
-        if (mLoginBiz!=null){
-            mLoginBiz.unSubscribe(tag);
-            mLoginBiz=null;
+        if (mGetUsersBiz!=null){
+            mGetUsersBiz.unSubscribe(tag);
+            mGetUsersBiz=null;
         }
     }
 
     @Override
-    public void getLogin() {
-        if (mLoginBiz == null) {
-            mLoginBiz = new GetUsersBiz();
+    public void getUsers() {
+        if (mGetUsersBiz == null) {
+            mGetUsersBiz = new GetUsersBiz();
         }
-        mLoginBiz.execute(new BaseRequestEntity(mTag, NetRequestCode.LOGIN, this));
+        mGetUsersBiz.execute(new BaseRequestEntity(mTag, NetRequestCode.GET_USERS, this));
+    }
+
+    @Override
+    public void login(String account, String password) {
+       if (mLoginBiz==null){
+           mLoginBiz=new LoginBiz();
+       }
+       mLoginBiz.execute(new LoginRequest(mTag,NetRequestCode.LOGIN,this,account,password));
     }
 
     @Override
@@ -59,9 +71,18 @@ public class LoginPresenter implements LoginContract.IPresenter, KKNetworkRespon
             return;
         }
         switch (response.requestCode) {
+            case NetRequestCode.GET_USERS:
+                GetUserResponse getUserResponse = (GetUserResponse) response;
+                mIView.getUsersSuccess(getUserResponse);
+                break;
             case NetRequestCode.LOGIN:
-                GetUserResponse loginResponse = (GetUserResponse) response;
-                mIView.getUsers(loginResponse);
+                LoginResponse loginResponse= (LoginResponse) response;
+                if (loginResponse.isSuccess()){
+                    mIView.loginSuccess(loginResponse);
+                }else{
+                    mIView.loginFail(loginResponse.getMsg());
+                }
+
 
                 break;
             default:

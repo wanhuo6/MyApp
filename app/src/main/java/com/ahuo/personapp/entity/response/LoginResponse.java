@@ -1,7 +1,8 @@
 package com.ahuo.personapp.entity.response;
 
 
-import com.ahuo.tools.network.retrofit.BaseResponseEntity;
+import com.ahuo.personapp.base.BaseResponse;
+import com.ahuo.personapp.entity.other.User;
 
 /**
  * Created on 17-5-11
@@ -9,13 +10,8 @@ import com.ahuo.tools.network.retrofit.BaseResponseEntity;
  * @author liuhuijie
  */
 
-public class LoginResponse extends BaseResponseEntity {
+public class LoginResponse extends BaseResponse {
 
-    public String name;
-    public Integer age;
-    public Double height;
-    public String photoUrl;
-
-
+    public User user;
 
 }
