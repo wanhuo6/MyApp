@@ -18,6 +18,8 @@ import com.alibaba.fastjson.JSONObject;
 
 import butterknife.BindView;
 
+import static com.ahuo.personapp.core.config.AppConfig.APP_LOGO;
+
 public class MainActivity extends BaseActivity implements LoginContract.IView {
 
     @BindView(R.id.tv_register)
@@ -30,6 +32,8 @@ public class MainActivity extends BaseActivity implements LoginContract.IView {
     TextView mTvKotlin;
     @BindView(R.id.tv_get_users)
     TextView mTvGetUsers;
+    @BindView(R.id.tv_users)
+    TextView mTvUsers;
 
 
     private static final String TAG = "MainActivity";
@@ -46,6 +50,7 @@ public class MainActivity extends BaseActivity implements LoginContract.IView {
     @Override
     protected void initData() {
         super.initData();
+        GlideLoaderUtil.loadFullWidthImage(this,APP_LOGO, GlideLoaderUtil.LOAD_IMAGE_DEFAULT_ID, mIvUserPhoto);
         mIPresenter = new LoginPresenter(TAG);
         mIPresenter.setView(this);
 
@@ -88,14 +93,14 @@ public class MainActivity extends BaseActivity implements LoginContract.IView {
     @Override
     public void loginSuccess(LoginResponse loginResponse) {
         dismissLoadingDialog();
-        GlideLoaderUtil.loadFullWidthImage(this, loginResponse.user.getPhoto(), GlideLoaderUtil.LOAD_IMAGE_DEFAULT_ID, mIvUserPhoto);
+
 
     }
 
     @Override
     public void getUsersSuccess(GetUserResponse response) {
         dismissLoadingDialog();
-        mTvGetUsers.setText(JSONObject.toJSONString(response));
+        mTvUsers.setText(JSONObject.toJSONString(response));
     }
 
     @Override
