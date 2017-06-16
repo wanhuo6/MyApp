@@ -4,6 +4,7 @@ import com.ahuo.personapp.base.BaseBiz
 import com.ahuo.personapp.base.BaseResponse
 import com.ahuo.personapp.core.net.ApiManager
 import com.ahuo.personapp.entity.request.RegisterRequest
+import com.ahuo.personapp.entity.response.RegisterResponse
 
 import retrofit2.Call
 
@@ -12,8 +13,8 @@ import retrofit2.Call
 
  * @author LiuHuiJie
  */
-class RegisterBiz : BaseBiz<BaseResponse<*>, RegisterRequest>() {
-    override fun buildNetWorkCall(requestEntity: RegisterRequest): Call<BaseResponse<*>> {
+class RegisterBiz : BaseBiz<RegisterResponse, RegisterRequest>() {
+    override fun buildNetWorkCall(requestEntity: RegisterRequest): Call<RegisterResponse> {
         return ApiManager.getInstance().apiService.register(requestEntity.nicName,requestEntity.account, requestEntity.password)
     }
 }

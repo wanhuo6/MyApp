@@ -1,10 +1,10 @@
 package com.ahuo.personapp.Presenter
 
 import com.ahuo.personapp.Biz.RegisterBiz
-import com.ahuo.personapp.base.BaseResponse
 import com.ahuo.personapp.contract.RegisterContract
 import com.ahuo.personapp.core.net.NetRequestCode
 import com.ahuo.personapp.entity.request.RegisterRequest
+import com.ahuo.personapp.entity.response.RegisterResponse
 import com.ahuo.tools.network.retrofit.BaseResponseEntity
 import com.ahuo.tools.network.retrofit.KKNetworkResponse
 
@@ -51,9 +51,9 @@ class RegisterPresenter(private var mTag:String) : RegisterContract.IPresenter, 
         }
         when (response!!.requestCode) {
             NetRequestCode.REGISTER -> {
-                var registerResponse = response as BaseResponse<*>
+                var registerResponse = response as RegisterResponse
                 if (registerResponse.isSuccess){
-                    mIView!!.registerSuccess(registerResponse.msg)
+                    mIView!!.registerSuccess(registerResponse.url!!)
                 }else{
                     mIView!!.registerFail(registerResponse.msg)
                 }

@@ -1,8 +1,8 @@
 package com.ahuo.personapp.core.net;
 
-import com.ahuo.personapp.base.BaseResponse;
 import com.ahuo.personapp.entity.response.GetUserResponse;
 import com.ahuo.personapp.entity.response.LoginResponse;
+import com.ahuo.personapp.entity.response.RegisterResponse;
 
 import retrofit2.Call;
 import retrofit2.http.Field;
@@ -20,7 +20,7 @@ import retrofit2.http.Query;
 public interface ApiService {
     @FormUrlEncoded
     @POST(NetUrl.REGISTER)
-    Call<BaseResponse> register(@Field("name") String name,@Field("account") String account, @Field("password") String password);
+    Call<RegisterResponse> register(@Field("name") String name, @Field("account") String account, @Field("password") String password);
 
     @GET(NetUrl.LOGIN)
     Call<LoginResponse> getLogin(@Query("account") String account, @Query("password") String password);

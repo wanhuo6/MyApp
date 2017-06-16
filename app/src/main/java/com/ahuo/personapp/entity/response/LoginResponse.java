@@ -13,5 +13,6 @@ import com.ahuo.personapp.entity.other.User;
 public class LoginResponse extends BaseResponse {
 
     public User user;
+    public String url;
 
 }

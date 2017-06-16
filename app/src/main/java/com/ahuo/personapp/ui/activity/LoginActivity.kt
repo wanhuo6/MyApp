@@ -51,7 +51,9 @@ class LoginActivity : BaseActivity(), LoginContract.IView {
 
     override fun loginSuccess(response: LoginResponse?) {
         dismissLoadingDialog()
-        ToastUtils.showToast(response!!.user.uuid.toString())
+        ToastUtils.showToast(response!!.url)
+        MyWebViewActivity.startActivity(this,response!!.url)
+        finish()
     }
 
     override fun getUsersSuccess(response: GetUserResponse?) {
