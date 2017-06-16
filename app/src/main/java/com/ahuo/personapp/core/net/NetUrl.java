@@ -8,7 +8,9 @@ package com.ahuo.personapp.core.net;
 
 public interface NetUrl {
 
-    String LOGIN="getUser";
+    String REGISTER="register";
+
+    String LOGIN="login";
 
     String GET_USERS="getUsers";
 

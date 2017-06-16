@@ -11,7 +11,6 @@ import com.ahuo.tools.network.retrofit.BaseRequestEntity;
 import com.ahuo.tools.network.retrofit.BaseResponseEntity;
 import com.ahuo.tools.network.retrofit.KKNetworkResponse;
 import com.ahuo.tools.util.MLog;
-import com.ahuo.tools.util.ToastUtils;
 
 /**
  * Created on 17-5-10

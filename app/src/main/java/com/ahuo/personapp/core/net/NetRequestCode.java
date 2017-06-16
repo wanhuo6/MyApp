@@ -12,4 +12,6 @@ public interface NetRequestCode {
 
     int LOGIN = 2;
 
+    int REGISTER = 3;
+
 }

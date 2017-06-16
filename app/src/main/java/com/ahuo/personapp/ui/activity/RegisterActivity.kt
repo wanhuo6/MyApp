@@ -3,65 +3,62 @@ package com.ahuo.personapp.ui.activity
 import android.app.Activity
 import android.content.Intent
 import android.text.TextUtils
-import com.ahuo.personapp.Presenter.LoginPresenter
+import com.ahuo.personapp.Presenter.RegisterPresenter
 import com.ahuo.personapp.R
 import com.ahuo.personapp.base.BaseActivity
-import com.ahuo.personapp.contract.LoginContract
-import com.ahuo.personapp.entity.response.GetUserResponse
-import com.ahuo.personapp.entity.response.LoginResponse
+import com.ahuo.personapp.contract.RegisterContract
 import com.ahuo.tools.util.ToastUtils
-import kotlinx.android.synthetic.main.activity_login.*
+import kotlinx.android.synthetic.main.activity_register.*
 
-class LoginActivity : BaseActivity(), LoginContract.IView {
-
-    var mIPresenter: LoginContract.IPresenter? = null
-
+class RegisterActivity : BaseActivity(), RegisterContract.IView {
     companion object {
         fun startActivity(activity: Activity) {
-            val intent = Intent(activity, LoginActivity::class.java)
+            val intent = Intent(activity, RegisterActivity::class.java)
             activity.startActivity(intent)
         }
     }
 
+    var mIPresenter: RegisterContract.IPresenter? = null
+
+
     override fun getLayoutId(): Int {
-        return R.layout.activity_login
+        return R.layout.activity_register
     }
 
     override fun initData() {
         super.initData()
-        mIPresenter = LoginPresenter(TAG)
+        mIPresenter = RegisterPresenter(TAG)
         mIPresenter!!.setView(this)
-        tvLogin.setOnClickListener {
-            toLogin()
+        tvRegister.setOnClickListener {
+            toRegister()
         }
+
     }
 
-    private fun toLogin() {
+    private fun toRegister() {
+        val nicName=etNicName.text.toString().trim()
         val account = etAccount.text.toString().trim()
         val password = etPassword.text.toString().trim()
-        if (TextUtils.isEmpty(account)) {
+        if(TextUtils.isEmpty(nicName)){
+            ToastUtils.showToast("昵称为空")
+        }else if (TextUtils.isEmpty(account)) {
             ToastUtils.showToast("账号为空")
         } else if (TextUtils.isEmpty(password)) {
             ToastUtils.showToast("密码为空")
         } else {
             showLoadingDialog(getString(R.string.loading_data_wait))
-            mIPresenter!!.login(account, password)
+            mIPresenter!!.register(nicName,account, password)
         }
     }
 
-    override fun loginSuccess(response: LoginResponse?) {
-        dismissLoadingDialog()
-        ToastUtils.showToast(response!!.user.uuid.toString())
-    }
-
-    override fun getUsersSuccess(response: GetUserResponse?) {
-
-    }
-
-    override fun loginFail(message: String?) {
+    override fun registerSuccess(message: String) {
         dismissLoadingDialog()
         ToastUtils.showToast(message)
     }
 
+    override fun registerFail(message: String) {
+        dismissLoadingDialog()
+        ToastUtils.showToast(message)
+    }
 
 }

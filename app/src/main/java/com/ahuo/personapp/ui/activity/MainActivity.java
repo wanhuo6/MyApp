@@ -20,6 +20,8 @@ import butterknife.BindView;
 
 public class MainActivity extends BaseActivity implements LoginContract.IView {
 
+    @BindView(R.id.tv_register)
+    TextView  mTvRegierster;
     @BindView(R.id.tv_login)
     TextView mTvLogin;
     @BindView(R.id.iv_user_photo)
@@ -47,6 +49,7 @@ public class MainActivity extends BaseActivity implements LoginContract.IView {
         mIPresenter = new LoginPresenter(TAG);
         mIPresenter.setView(this);
 
+        mTvRegierster.setOnClickListener(mClickListener);
         mTvLogin.setOnClickListener(mClickListener);
         mTvKotlin.setOnClickListener(mClickListener);
         mTvGetUsers.setOnClickListener(mClickListener);
@@ -57,6 +60,9 @@ public class MainActivity extends BaseActivity implements LoginContract.IView {
     protected void onSingleClick(View view) {
         super.onSingleClick(view);
         switch (view.getId()) {
+            case R.id.tv_register:
+                RegisterActivity.Companion.startActivity(this);
+                break;
             case R.id.tv_login:
                 LoginActivity.Companion.startActivity(this);
                 break;
