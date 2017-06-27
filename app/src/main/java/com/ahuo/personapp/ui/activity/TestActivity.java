@@ -47,6 +47,11 @@ public class TestActivity extends BaseActivity implements LoginContract.IView{
     }
 
     @Override
+    public void getUsersFail(String message) {
+
+    }
+
+    @Override
     public void loginFail(String message) {
 
     }

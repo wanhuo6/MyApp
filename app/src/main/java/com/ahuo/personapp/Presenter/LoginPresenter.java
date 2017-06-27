@@ -103,6 +103,9 @@ public class LoginPresenter implements LoginContract.IPresenter, KKNetworkRespon
             case NetRequestCode.LOGIN:
                 mIView.loginFail(message);
                 break;
+            case NetRequestCode.GET_USERS:
+                mIView.getUsersFail(message);
+                break;
 
             default:
 

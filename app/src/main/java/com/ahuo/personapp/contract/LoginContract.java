@@ -17,6 +17,8 @@ public interface LoginContract {
 
         void getUsersSuccess(GetUserResponse response);
 
+        void getUsersFail(String message);
+
         void loginFail(String message);
     }
 

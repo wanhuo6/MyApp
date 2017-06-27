@@ -23,7 +23,7 @@ import static com.ahuo.personapp.core.config.AppConfig.APP_LOGO;
 public class MainActivity extends BaseActivity implements LoginContract.IView {
 
     @BindView(R.id.tv_register)
-    TextView  mTvRegierster;
+    TextView  mTvRegister;
     @BindView(R.id.tv_login)
     TextView mTvLogin;
     @BindView(R.id.iv_user_photo)
@@ -50,11 +50,11 @@ public class MainActivity extends BaseActivity implements LoginContract.IView {
     @Override
     protected void initData() {
         super.initData();
-        GlideLoaderUtil.loadFullWidthImage(this,APP_LOGO, GlideLoaderUtil.LOAD_IMAGE_DEFAULT_ID, mIvUserPhoto);
+        GlideLoaderUtil.loadNormalImage(this,APP_LOGO, GlideLoaderUtil.LOAD_IMAGE_DEFAULT_ID, mIvUserPhoto);
         mIPresenter = new LoginPresenter(TAG);
         mIPresenter.setView(this);
 
-        mTvRegierster.setOnClickListener(mClickListener);
+        mTvRegister.setOnClickListener(mClickListener);
         mTvLogin.setOnClickListener(mClickListener);
         mTvKotlin.setOnClickListener(mClickListener);
         mTvGetUsers.setOnClickListener(mClickListener);
@@ -104,11 +104,18 @@ public class MainActivity extends BaseActivity implements LoginContract.IView {
     }
 
     @Override
+    public void getUsersFail(String message) {
+        dismissLoadingDialog();
+        if(!TextUtils.isEmpty(message)){
+            ToastUtils.showToast(message);
+        }
+    }
+
+    @Override
     public void loginFail(String message) {
         dismissLoadingDialog();
-        if (TextUtils.isEmpty(message)) {
-            return;
+        if(!TextUtils.isEmpty(message)){
+            ToastUtils.showToast(message);
         }
-        ToastUtils.showToast(message);
     }
 }

@@ -13,6 +13,13 @@ import com.ahuo.tools.util.ToastUtils
 import kotlinx.android.synthetic.main.activity_login.*
 
 class LoginActivity : BaseActivity(), LoginContract.IView {
+    override fun getUsersFail(message: String?) {
+        dismissLoadingDialog()
+        if(!TextUtils.isEmpty(message)){
+            ToastUtils.showToast(message)
+        }
+
+    }
 
     var mIPresenter: LoginContract.IPresenter? = null
 
@@ -51,7 +58,6 @@ class LoginActivity : BaseActivity(), LoginContract.IView {
 
     override fun loginSuccess(response: LoginResponse?) {
         dismissLoadingDialog()
-        ToastUtils.showToast(response!!.url)
         MyWebViewActivity.startActivity(this,response!!.url)
         finish()
     }
@@ -62,7 +68,9 @@ class LoginActivity : BaseActivity(), LoginContract.IView {
 
     override fun loginFail(message: String?) {
         dismissLoadingDialog()
-        ToastUtils.showToast(message)
+        if(!TextUtils.isEmpty(message)){
+            ToastUtils.showToast(message)
+        }
     }
 
 

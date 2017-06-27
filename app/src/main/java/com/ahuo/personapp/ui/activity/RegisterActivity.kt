@@ -53,7 +53,6 @@ class RegisterActivity : BaseActivity(), RegisterContract.IView {
 
     override fun registerSuccess(message: String) {
         dismissLoadingDialog()
-        ToastUtils.showToast(message)
         MyWebViewActivity.startActivity(this,message)
         finish()
     }
