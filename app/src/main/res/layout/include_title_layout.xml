@@ -4,7 +4,7 @@
               android:layout_height="wrap_content"
               android:orientation="vertical">
 
-    <com.kk.weigh.ui.widget.KKAppBar
+    <com.ahuo.personapp.widget.MyAppBar
         android:id="@+id/kk_toolbar"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"/>
